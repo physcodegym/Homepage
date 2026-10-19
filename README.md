@@ -2,7 +2,7 @@
 
 The public project website for **PhysCodeGym: Benchmarking Coding Agents for Physically Verifiable 4D Reconstruction**.
 
-**Website:** https://shaoshuai0605.github.io/PhysCodeGym-Project-Page/
+**Website:** https://physcodegym.github.io/Homepage/
 
 The page includes the reconstruction overview video, all 156 benchmark tasks, nine leaderboard configurations, and model reconstruction comparisons. The main configurations contain 1,179 available reconstruction videos; 225 task/configuration slots have no submitted video. One additional archived reconstruction is retained.
 
@@ -12,7 +12,7 @@ The six physical failure entries open a focused physical-check view with the fin
 
 Changes pushed to `main` are automatically checked, built, and published by [the GitHub Pages workflow](.github/workflows/pages.yml). Deployment progress is shown in the repository's **Actions** tab. GitHub Pages must use **GitHub Actions** as its source in **Settings → Pages**.
 
-The workflow publishes only the generated `dist/` website. Asset paths are relative, so images, data, and videos work under the `/PhysCodeGym-Project-Page/` address.
+The workflow publishes only the generated `dist/` website. Asset paths are relative, so images, data, and videos work under the `/Homepage/` address.
 
 ## Local preview
 
