@@ -9,6 +9,12 @@ const cases=JSON.parse(await readFile(new URL('../src/data/cases.json',import.me
 const roster=JSON.parse(await readFile(new URL('../src/data/results.json',import.meta.url)));
 const catalog=JSON.parse(await readFile(new URL('../qa/video-catalog-manifest.json',import.meta.url)));
 const tasks=groupTasks(cases);
+const home=JSON.parse(await readFile(new URL('../src/data/home.json',import.meta.url)));
+assert.deepEqual(home.failures,cases.filter(c=>c.kind==='Physical failure'));
+for(const row of home.submissions){
+ assert.equal(row.submitted,catalog.main_matches.filter(m=>m.model===row.model&&m.harness===row.harness).length);
+ assert.equal(row.total,156);
+}
 assert.equal(tasks.length,new Set(cases.map(c=>c.caseId)).size);
 assert.equal(tasks.length,156);
 assert.deepEqual(Object.fromEntries(['Rigid body','Liquid','Deformable','Wind-driven'].map(d=>[d,tasks.filter(t=>t.domain===d).length])),{'Rigid body':95,'Liquid':40,'Deformable':12,'Wind-driven':9});

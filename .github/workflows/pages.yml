@@ -16,6 +16,7 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - name: Check out the website
         uses: actions/checkout@v4
@@ -30,6 +31,18 @@ jobs:
         run: npm run check:gallery
       - name: Build the website
         run: npm run build
+      - name: Restore verified playback copies
+        uses: actions/cache@v4
+        with:
+          path: .cache/site-media
+          key: pages-media-v1-${{ hashFiles('qa/video-catalog-manifest.json', 'scripts/prepare_web_media.py') }}
+          restore-keys: pages-media-v1-
+      - name: Set up video tools
+        run: command -v ffmpeg >/dev/null || (sudo apt-get update && sudo apt-get install -y ffmpeg)
+      - name: Verify video conversion and source integrity checks
+        run: npm run check:media
+      - name: Prepare and verify website videos
+        run: npm run prepare:media
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
       - name: Upload the website
@@ -38,6 +51,7 @@ jobs:
           path: dist
 
   deploy:
+    if: github.ref == 'refs/heads/main'
     needs: build
     runs-on: ubuntu-latest
     permissions:

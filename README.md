@@ -37,9 +37,13 @@ The production preview opens at http://127.0.0.1:4173/.
 
 ## Videos
 
-The overview, posters, and selected showcase videos are included in `public/`. Other reference and reconstruction videos load on demand from the public [PhysCodeGym dataset](https://huggingface.co/datasets/ShaoShuai0605/PhysCodeGym), pinned to commit `d65acd3ccc4a4880034161dfd05281b165a33645`. Those videos require an internet connection.
+The public site serves its playback videos from GitHub Pages. During publication, `npm run prepare:media` downloads missing files from the public [PhysCodeGym dataset](https://huggingface.co/datasets/ShaoShuai0605/PhysCodeGym), pinned to commit `d65acd3ccc4a4880034161dfd05281b165a33645`, and verifies each source SHA-256. New reference playback copies fit within 640 pixels; compatible model videos are remuxed without re-encoding. Existing local showcase videos are also checked for browser compatibility and full decoding. Frame counts, frame rate, duration, browser-compatible H.264, and full decoding are checked before publication. Original dataset links remain available beside prepared videos. The source catalog and scores are unchanged.
 
-`npm run check:remote` verifies the referenced public video identities against that dataset revision. It requires Python 3 and internet access. `npm run check:gallery` checks all 156 task mappings, configuration availability, and the six failure-evidence mappings locally.
+Playback copies are cached by content hash in `.cache/site-media/` and are not committed to Git. The build refuses to publish a site larger than 850 MiB. Local development uses the source catalog; to preview the complete deployment, install FFmpeg, run `npm run build && npm run prepare:media`, then `npm run preview`.
+
+The overview starts muted when it enters the viewport and pauses when it leaves. Task comparisons attempt muted playback on opening; ready streams play while others load. Every submitted video has a direct link and individual failure feedback/retry. Shared play/pause, seeking, reset, and global retry remain available. Browser autoplay restrictions fall back to manual playback; reduced-motion preference disables automatic starts.
+
+`npm run check:remote` verifies the referenced public video identities against that dataset revision. It requires Python 3 and internet access. `npm run check:gallery` checks all 156 task mappings, configuration availability, and the six failure-evidence mappings locally. `npm run check:media` tests frame/timing preservation, source hash rejection, and recovery from a corrupt cached preview.
 
 ## Editing
 
@@ -50,10 +54,13 @@ The overview, posters, and selected showcase videos are included in `public/`. O
 | `src/player.ts` | Synchronized video playback |
 | `src/evidence.ts` | Focused physical findings, validity, and evidence images |
 | `src/style.css`, `src/tokens.css` | Layout and appearance |
-| `src/data/content.json` | Authors, affiliations, metrics, and citation |
+| `src/data/content.json` | Authors, affiliations, metrics, and official arXiv BibTeX |
+| `src/data/home.json` | Small generated homepage data; rebuilt from the catalog by `scripts/prepare_content.mjs` |
 | `src/data/cases.json`, `public/data/cases.json` | Matching copies of the task and video catalog |
 | `src/data/results.json`, `public/data/results.json` | Matching copies of the leaderboard data |
 | `public/media/` | Local video, poster, figure, and evidence assets |
 | `qa/video-catalog-manifest.json` | Video identities used by the verification commands |
 
 Preserve the task, model, harness, job, trial, and video hash mappings when updating results or evidence. Icon sources and licenses are documented in [public/icons/README.md](public/icons/README.md).
+
+The leaderboard reproduces arXiv:2610.17288v1, Table 2 (12 October 2026). Physical results retain their provisional lower-bound and coverage qualifications. Video-submission counts are not presented as physical-evaluation denominators.

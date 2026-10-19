@@ -4,8 +4,11 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
+    "predev": "node scripts/prepare_content.mjs",
     "dev": "vite --host 127.0.0.1",
-    "build": "tsc --noEmit && vite build",
+    "build": "node scripts/prepare_content.mjs && tsc --noEmit && vite build",
+    "prepare:media": "python3 scripts/prepare_web_media.py",
+    "check:media": "python3 -m unittest discover -s scripts -p test_web_media.py",
     "preview": "vite preview --host 127.0.0.1",
     "check:gallery": "node scripts/check_task_gallery.mjs",
     "check:remote": "python3 scripts/check_published_media.py"

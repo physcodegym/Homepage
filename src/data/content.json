@@ -50,9 +50,9 @@
     },
     {
       "group": "visual",
-      "label": "LPIPS",
+      "label": "1 − LPIPS",
       "name": "Perceptual similarity",
-      "description": "AlexNet LPIPS distance converted to higher-is-better similarity.",
+      "description": "AlexNet LPIPS distance converted to similarity: clip(1 − distance, 0, 1). Higher is better.",
       "source": "Reference + render"
     },
     {
@@ -84,6 +84,6 @@
       "source": "Program + scene + probes"
     }
   ],
-  "bibtex": "@misc{shao2026physcodegym,\n  title = {PhysCodeGym: Benchmarking Coding Agents for Physically Verifiable 4D Reconstruction},\n  author = {Shuai Shao and Jinchen He and Cunxin Fan and Zihan Guo and Shijian Wang and Qihan Ren and Kangning Zhang and Zunnan Xu and Haoyuan Li and Hao Wang and Jianghao Lin and Weiwen Liu and Weinan Zhang},\n  year = {2026},\n  note = {Manuscript; public preprint identifier pending}\n}",
+  "bibtex": "@misc{shao2026physcodegymbenchmarkingcodingagents,\n      title={PhysCodeGym: Benchmarking Coding Agents for Physically Verifiable 4D Reconstruction}, \n      author={Shuai Shao and Jinchen He and Cunxin Fan and Zihan Guo and Shijian Wang and Qihan Ren and Kangning Zhang and Zunnan Xu and Haoyuan Li and Hao Wang and Jianghao Lin and Weiwen Liu and Weinan Zhang},\n      year={2026},\n      eprint={2610.17288},\n      archivePrefix={arXiv},\n      primaryClass={cs.AI},\n      url={https://arxiv.org/abs/2610.17288}, \n}\n",
   "equalContributionNote": "All four co-first authors agree that each may list their own name first when presenting this work."
 }

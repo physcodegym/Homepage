@@ -1,0 +1,356 @@
+{
+  "failures": [
+    {
+      "id": "astra_cradle",
+      "caseId": "physics_iq_0160_single_cradle",
+      "title": "Cradle: unexplained energy gain",
+      "domain": "Rigid body",
+      "kind": "Physical failure",
+      "description": "Fitted release-energy upper bound: 0.004970750 J. At frame 236, potential energy alone reaches 0.009440668 J.",
+      "differences": "Object and event checks pass, while appearance and timing still differ. The defect is established through code inspection and native measurements.",
+      "source": "resource/physical_validity_showcase_20261007/cases/astra_cradle/metadata.json",
+      "reference": "media/cases/astra_cradle-ref.mp4",
+      "models": [
+        {
+          "name": "GPT-6-Astra",
+          "setting": "Astra|codex|high|10800|20",
+          "job": "codex-astra-router4-add30-20260927-25",
+          "trial": "case-0025__eEpLZeQ",
+          "sha256": "7d098d547bdd5006719bcf6cf7516cb2aa57eabff3bbc27e82f1c03f890a04d1",
+          "video": "media/cases/7d098d547bdd5006.mp4",
+          "scores": {
+            "S_obj": 1,
+            "S_evt": 1,
+            "S_val": 0.8
+          },
+          "scoreNote": "Resolved original-condition report score (score_proposal; independent scientific review pending). This is not the final aggregate physical score.",
+          "poster": "media/cases/7d098d547bdd5006.jpg"
+        }
+      ],
+      "evidence": "media/evidence/astra_cradle.jpg",
+      "poster": "media/cases/astra_cradle-ref.jpg"
+    },
+    {
+      "id": "sol_eggs",
+      "caseId": "r3_pb_02_l1_0007_roll",
+      "title": "Eggs: persistent table penetration",
+      "domain": "Rigid body",
+      "kind": "Physical failure",
+      "description": "Nine stationary eggs remain embedded in the table, exposing a contact defect.",
+      "differences": "Object and event checks pass. The physical finding comes from native material geometry, not appearance alone.",
+      "source": "resource/physical_validity_showcase_20261007/cases/sol_eggs/metadata.json",
+      "reference": "media/cases/sol_eggs-ref.mp4",
+      "models": [
+        {
+          "name": "GPT-5.6-Sol",
+          "setting": "GPT-5.6-Sol|codex|high|10800|20",
+          "job": "codex-sol-router4-rest79",
+          "trial": "case-0045__uLQKxBH",
+          "sha256": "9521293bfff0df2b4a8da509e8484e35c168b134177945e8823fca00c8a8c116",
+          "video": "media/cases/9521293bfff0df2b.mp4",
+          "scores": {
+            "S_obj": 1,
+            "S_evt": 1,
+            "S_val": 0.5
+          },
+          "scoreNote": "Resolved original-condition report score (score_proposal; independent scientific review pending). This is not the final aggregate physical score.",
+          "poster": "media/cases/9521293bfff0df2b.jpg"
+        }
+      ],
+      "evidence": "media/evidence/sol_eggs.jpg",
+      "poster": "media/cases/sol_eggs-ref.jpg"
+    },
+    {
+      "id": "deepseek_gripper",
+      "caseId": "physics_iq_0181_unstable_block_stack",
+      "title": "Gripper: fingers inside solid blocks",
+      "domain": "Rigid body",
+      "kind": "Physical failure",
+      "description": "Finger centers enter solid blocks. The evidence measures center-inside depth, not SAT overlap.",
+      "differences": "Object and event checks pass, while appearance and timing still differ. The defect is established through code inspection and native measurements.",
+      "source": "resource/physical_validity_showcase_20261007/cases/deepseek_gripper/metadata.json",
+      "reference": "media/cases/deepseek_gripper-ref.mp4",
+      "models": [
+        {
+          "name": "DeepSeek-V4.1-Flash",
+          "setting": "DeepSeek (historical CC high)|claude-code|high|10800|20",
+          "job": "deepseek-flash-merged20",
+          "trial": "case-0057__ZJS56yU",
+          "sha256": "08a1c6740e947d3a03a211890d03c498163b31bf2974a2a12ceaee14ea708771",
+          "video": "media/cases/08a1c6740e947d3a.mp4",
+          "scores": {
+            "S_obj": 1,
+            "S_evt": 1,
+            "S_val": 0.5
+          },
+          "scoreNote": "Resolved original-condition report score (score_proposal; independent scientific review pending). This is not the final aggregate physical score.",
+          "poster": "media/cases/08a1c6740e947d3a.jpg"
+        }
+      ],
+      "evidence": "media/evidence/deepseek_gripper.jpg",
+      "poster": "media/cases/deepseek_gripper-ref.jpg"
+    },
+    {
+      "id": "glm_basket",
+      "caseId": "physics_iq_0013_ball_in_basket",
+      "title": "Basket: overlapping solid materials",
+      "domain": "Rigid body",
+      "kind": "Physical failure",
+      "description": "The basket floor overlaps the tabletop, measured using actual closed box material.",
+      "differences": "The measurement does not treat arbitrary hollow-object bounding boxes as solid material.",
+      "source": "resource/physical_validity_showcase_20261007/cases/glm_basket/metadata.json",
+      "reference": "media/cases/glm_basket-ref.mp4",
+      "models": [
+        {
+          "name": "GLM-5.3-Flash",
+          "setting": "GLM-5.3-Flash|claude-code|high|10800|20",
+          "job": "glm53-high-rerun-s09",
+          "trial": "case-0036__Gcf9mmm",
+          "sha256": "13acaa874dab49f3850ce4f917591fda16eef9717cd6618ba8d556e84059a2a7",
+          "video": "media/cases/13acaa874dab49f3.mp4",
+          "scores": {
+            "S_obj": 1,
+            "S_evt": 1,
+            "S_val": 0.68
+          },
+          "scoreNote": "Resolved original-condition report score (score_proposal; independent scientific review pending). This is not the final aggregate physical score.",
+          "poster": "media/cases/13acaa874dab49f3.jpg"
+        }
+      ],
+      "evidence": "media/evidence/glm_basket.jpg",
+      "poster": "media/cases/glm_basket-ref.jpg"
+    },
+    {
+      "id": "sonnet_ball",
+      "caseId": "physics_iq_0166_smiley_ball_rotates",
+      "title": "Ball: support across a material gap",
+      "domain": "Rigid body",
+      "kind": "Physical failure",
+      "description": "The ball gains support and rotation while sampled material separation remains positive.",
+      "differences": "Reported distances are sampled measurements, not a claim about the exact global minimum distance.",
+      "source": "resource/physical_validity_showcase_20261007/cases/sonnet_ball/metadata.json",
+      "reference": "media/cases/sonnet_ball-ref.mp4",
+      "models": [
+        {
+          "name": "Claude Sonnet 5",
+          "setting": "Sonnet5|claude-code|high|10800|20",
+          "job": "sonnet5-codewiz-high-add30-20260929-20",
+          "trial": "case-0020__s5iiSHg",
+          "sha256": "44ca04146ce64eedf7255e3fbd302071621c6085273f56740f596b25b9bd25cf",
+          "video": "media/cases/44ca04146ce64eed.mp4",
+          "scores": {
+            "S_obj": 1,
+            "S_evt": 1,
+            "S_val": 0.72
+          },
+          "scoreNote": "Resolved original-condition report score (score_proposal; independent scientific review pending). This is not the final aggregate physical score.",
+          "poster": "media/cases/44ca04146ce64eed.jpg"
+        }
+      ],
+      "evidence": "media/evidence/sonnet_ball.jpg",
+      "poster": "media/cases/sonnet_ball-ref.jpg"
+    },
+    {
+      "id": "luna6_australia",
+      "caseId": "pexels_wind_0013_flag_australia_grey_sky",
+      "title": "Flag: cloth self-intersection",
+      "domain": "Wind-driven",
+      "kind": "Physical failure",
+      "description": "Non-adjacent cloth material intersects in the unchanged native scene.",
+      "differences": "Exact counts are shown only for frames 54 and 60; a capped scan is not presented as a full time series.",
+      "source": "resource/physical_validity_showcase_20261007/cases/luna6_australia/metadata.json",
+      "reference": "media/cases/luna6_australia-ref.mp4",
+      "models": [
+        {
+          "name": "GPT-6-Luna",
+          "setting": "GPT-6-Luna|codex|high|10800|20",
+          "job": "codex-luna6-router4-all-20260930-031",
+          "trial": "case-0031__HpJhAjT",
+          "sha256": "4d8bfd860c6233f0427f790b1b227bb30f6f6a1a1bc6a2e184ac4747494f02a5",
+          "video": "media/cases/4d8bfd860c6233f0.mp4",
+          "scores": {
+            "S_obj": 1,
+            "S_evt": 1,
+            "S_val": 0.5
+          },
+          "scoreNote": "Resolved original-condition report score (score_proposal; independent scientific review pending). This is not the final aggregate physical score.",
+          "poster": "media/cases/4d8bfd860c6233f0.jpg"
+        }
+      ],
+      "evidence": "media/evidence/luna6_australia.jpg",
+      "poster": "media/cases/luna6_australia-ref.jpg"
+    }
+  ],
+  "domains": [
+    {
+      "label": "Rigid body",
+      "total": 95,
+      "poster": "media/cases/05_rigid_domino-ref.jpg",
+      "title": "A rotating arm triggers dominoes"
+    },
+    {
+      "label": "Liquid",
+      "total": 40,
+      "poster": "media/cases/02_liquid_milk-ref.jpg",
+      "title": "Milk pouring into a glass"
+    },
+    {
+      "label": "Deformable",
+      "total": 12,
+      "poster": "media/cases/03_deformable_silk-ref.jpg",
+      "title": "Silk falling over a teapot"
+    },
+    {
+      "label": "Wind-driven",
+      "total": 9,
+      "poster": "media/cases/04_wind_driven_flags-ref.jpg",
+      "title": "Four flags in the wind"
+    }
+  ],
+  "submissions": [
+    {
+      "model": "GPT-6-Astra",
+      "harness": "Codex",
+      "effort": "high",
+      "ssim": 0.61,
+      "lpips": 0.561,
+      "object": 0.909,
+      "visual": 0.693,
+      "event": 0.805,
+      "motion": 0.324,
+      "validity": 0.768,
+      "physical": 0.633,
+      "overall": 0.663,
+      "submitted": 156,
+      "total": 156
+    },
+    {
+      "model": "GPT-5.6-Sol",
+      "harness": "Codex",
+      "effort": "high",
+      "ssim": 0.55,
+      "lpips": 0.448,
+      "object": 0.835,
+      "visual": 0.611,
+      "event": 0.687,
+      "motion": 0.21,
+      "validity": 0.69,
+      "physical": 0.529,
+      "overall": 0.57,
+      "submitted": 155,
+      "total": 156
+    },
+    {
+      "model": "GPT-6-Luna",
+      "harness": "Codex",
+      "effort": "high",
+      "ssim": 0.518,
+      "lpips": 0.363,
+      "object": 0.633,
+      "visual": 0.505,
+      "event": 0.393,
+      "motion": 0.128,
+      "validity": 0.555,
+      "physical": 0.359,
+      "overall": 0.432,
+      "submitted": 146,
+      "total": 156
+    },
+    {
+      "model": "GPT-5.6-Luna",
+      "harness": "Codex",
+      "effort": "high",
+      "ssim": 0.506,
+      "lpips": 0.355,
+      "object": 0.639,
+      "visual": 0.5,
+      "event": 0.448,
+      "motion": 0.157,
+      "validity": 0.564,
+      "physical": 0.391,
+      "overall": 0.446,
+      "submitted": 149,
+      "total": 156
+    },
+    {
+      "model": "DeepSeek-V4.1-Flash",
+      "harness": "Claude Code",
+      "effort": "high",
+      "ssim": 0.514,
+      "lpips": 0.398,
+      "object": 0.615,
+      "visual": 0.509,
+      "event": 0.446,
+      "motion": 0.2,
+      "validity": 0.522,
+      "physical": 0.391,
+      "overall": 0.45,
+      "submitted": 134,
+      "total": 156
+    },
+    {
+      "model": "Claude Sonnet 5",
+      "harness": "Claude Code",
+      "effort": "high",
+      "ssim": 0.513,
+      "lpips": 0.315,
+      "object": 0.481,
+      "visual": 0.436,
+      "event": 0.368,
+      "motion": 0.111,
+      "validity": 0.559,
+      "physical": 0.347,
+      "overall": 0.392,
+      "submitted": 141,
+      "total": 156
+    },
+    {
+      "model": "Qwen3.8-Flash",
+      "harness": "Claude Code",
+      "effort": "high",
+      "ssim": 0.354,
+      "lpips": 0.239,
+      "object": 0.41,
+      "visual": 0.334,
+      "event": 0.307,
+      "motion": 0.09,
+      "validity": 0.35,
+      "physical": 0.252,
+      "overall": 0.293,
+      "submitted": 98,
+      "total": 156
+    },
+    {
+      "model": "GLM-5.3-Flash",
+      "harness": "Claude Code",
+      "effort": "high",
+      "ssim": 0.286,
+      "lpips": 0.226,
+      "object": 0.362,
+      "visual": 0.291,
+      "event": 0.24,
+      "motion": 0.103,
+      "validity": 0.295,
+      "physical": 0.213,
+      "overall": 0.252,
+      "submitted": 81,
+      "total": 156
+    },
+    {
+      "model": "Kimi K2.8",
+      "harness": "Kimi Code",
+      "effort": "high",
+      "ssim": 0.435,
+      "lpips": 0.304,
+      "object": 0.477,
+      "visual": 0.405,
+      "event": 0.349,
+      "motion": 0.11,
+      "validity": 0.448,
+      "physical": 0.302,
+      "overall": 0.354,
+      "submitted": 119,
+      "total": 156
+    }
+  ]
+}
