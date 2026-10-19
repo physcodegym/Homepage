@@ -5,22 +5,29 @@ export function setupOverview(video:HTMLVideoElement, canPlay:()=>boolean, onPla
   let visible=false;
   let manuallyPaused=false;
   let automaticPause=false;
+  let autoplayBlocked=false;
   video.muted=true;
 
   function pause(){
     if(!video.paused){automaticPause=true;video.pause();}
   }
   function refresh(){
+    const rect=video.getBoundingClientRect();
+    const visibleHeight=Math.max(0,Math.min(window.innerHeight,rect.bottom)-Math.max(0,rect.top));
+    visible=rect.height>0&&visibleHeight/rect.height>=.25;
     if(!visible||document.hidden||!canPlay()){pause();return;}
-    if(motion.matches||manuallyPaused||video.error)return;
-    void video.play().catch(()=>{status.textContent='Select Play to start the overview video.';});
+    if(motion.matches||manuallyPaused||autoplayBlocked||video.error||!video.paused)return;
+    void video.play().catch(error=>{
+      if(error?.name==='AbortError')return;
+      autoplayBlocked=true;status.textContent='Select Play to start the overview video.';
+    });
   }
-  video.addEventListener('play',()=>{manuallyPaused=false;status.textContent='';onPlay();});
+  video.addEventListener('play',()=>{manuallyPaused=false;autoplayBlocked=false;status.textContent='';onPlay();});
   video.addEventListener('pause',()=>{
     if(automaticPause)automaticPause=false;
-    else manuallyPaused=true;
+    else if(visible&&!document.hidden&&canPlay())manuallyPaused=true;
   });
-  video.addEventListener('loadeddata',()=>{retry.hidden=true;});
+  video.addEventListener('loadeddata',()=>{retry.hidden=true;refresh();});
   video.addEventListener('error',()=>{
     status.textContent='The overview video could not load. Retry or open the video directly.';
     retry.hidden=false;
@@ -29,10 +36,9 @@ export function setupOverview(video:HTMLVideoElement, canPlay:()=>boolean, onPla
     manuallyPaused=false;video.load();
     void video.play().catch(()=>{status.textContent='Select Play to start the overview video.';});
   });
-  new IntersectionObserver(entries=>{
-    visible=entries[0].isIntersecting&&entries[0].intersectionRatio>=.25;
-    refresh();
-  },{threshold:[0,.25]}).observe(video);
+  new IntersectionObserver(refresh,{threshold:[0,.25]}).observe(video);
+  window.addEventListener('scroll',refresh,{passive:true});
+  window.addEventListener('resize',refresh);
   document.addEventListener('visibilitychange',refresh);
   motion.addEventListener('change',()=>{if(motion.matches)pause();else refresh();});
   return {pause,refresh};
